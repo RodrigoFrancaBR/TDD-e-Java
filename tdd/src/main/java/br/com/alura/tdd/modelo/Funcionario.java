@@ -28,14 +28,26 @@ public class Funcionario {
 	}
 
 	public void reajustarSalario(BigDecimal reajusteSalarial) {
-		
-		int compareTo = reajusteSalarial.compareTo(BigDecimal.ZERO);
-		
-		if (compareTo <= 0) {
+
+		if (valorMenorOuIgualAZero(reajusteSalarial)) {
 			throw new IllegalArgumentException();
 		}
-		
+
 		this.salario = this.salario.add(reajusteSalarial);
+	}
+
+	public BigDecimal obterValorPercentualDoSalario(BigDecimal percentual) {
+
+		if (valorMenorOuIgualAZero(percentual)) {
+			throw new IllegalArgumentException();
+		}
+
+		return percentual.multiply(salario).setScale(2);
+	}
+
+	private boolean valorMenorOuIgualAZero(BigDecimal valor) {
+		int compareTo = valor.compareTo(BigDecimal.ZERO);
+		return compareTo <= 0 ? true : false;
 	}
 
 }
