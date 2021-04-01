@@ -3,18 +3,18 @@ package br.com.alura.tdd.service;
 import java.math.BigDecimal;
 
 import br.com.alura.tdd.enun.Desempenho;
+import br.com.alura.tdd.modelo.Funcionario;
 
 public class ReajustePorDesempenhoService {
 
-	public BigDecimal reajustarSalario(BigDecimal salario, Desempenho desempenho) {
+	public void reajustarSalarioPorDesempenho(Funcionario funcionario, Desempenho desempenho) {
 
-		BigDecimal divide = BigDecimal.ZERO;
+		if (desempenho.equals(Desempenho.A_DESEJAR)) {
 
-		if (desempenho.equals(Desempenho.a_desejar)) {
-			divide = new BigDecimal("0.03").multiply(salario).setScale(1);
+			BigDecimal reajusteSalarial = new BigDecimal("0.03").multiply(funcionario.getSalario()).setScale(2);
+
+			funcionario.reajustarSalario(reajusteSalarial);
 		}
-
-		return divide;
 	}
 
 }

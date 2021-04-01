@@ -27,4 +27,15 @@ public class Funcionario {
 		return salario;
 	}
 
+	public void reajustarSalario(BigDecimal reajusteSalarial) {
+		
+		int compareTo = reajusteSalarial.compareTo(BigDecimal.ZERO);
+		
+		if (compareTo <= 0) {
+			throw new IllegalArgumentException();
+		}
+		
+		this.salario = this.salario.add(reajusteSalarial);
+	}
+
 }
