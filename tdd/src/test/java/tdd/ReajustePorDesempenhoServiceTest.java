@@ -24,4 +24,30 @@ public class ReajustePorDesempenhoServiceTest {
 		Assertions.assertEquals(funcionario.getSalario(), new BigDecimal("1030.00"));
 
 	}
+	
+	@Test
+	public void reajusteDeveSerDeQuinzePorcentoDoSalarioSeDesempenhoForBom() {
+
+		ReajustePorDesempenhoService service = new ReajustePorDesempenhoService();
+
+		Funcionario funcionario = new Funcionario("Rodrigo", LocalDate.now(), new BigDecimal("1000.00"));
+
+		service.reajustarSalarioPorDesempenho(funcionario, Desempenho.BOM);
+
+		Assertions.assertEquals(funcionario.getSalario(), new BigDecimal("1150.00"));
+
+	}
+	
+	@Test
+	public void reajusteDeveSerDeVintePorcentoDoSalarioSeDesempenhoForOtimo() {
+
+		ReajustePorDesempenhoService service = new ReajustePorDesempenhoService();
+
+		Funcionario funcionario = new Funcionario("Rodrigo", LocalDate.now(), new BigDecimal("1000.00"));
+
+		service.reajustarSalarioPorDesempenho(funcionario, Desempenho.OTIMO);
+
+		Assertions.assertEquals(funcionario.getSalario(), new BigDecimal("1200.00"));
+
+	}
 }

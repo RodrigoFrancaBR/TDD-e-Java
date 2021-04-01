@@ -1,7 +1,6 @@
 package br.com.alura.tdd.enun;
 
 public enum Desempenho {
-	// a_desejar,
-	A_DESEJAR
-	
+	A_DESEJAR, BOM, OTIMO
+
 }
