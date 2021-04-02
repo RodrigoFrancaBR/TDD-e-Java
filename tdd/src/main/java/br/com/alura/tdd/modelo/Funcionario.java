@@ -36,7 +36,7 @@ public class Funcionario {
 		this.salario = this.salario.add(reajusteSalarial);
 	}
 
-	public BigDecimal obterValorPercentualDoSalario(BigDecimal percentual) {
+	public BigDecimal obterValorBaseadoNoPercentualDoSalario(BigDecimal percentual) {
 
 		if (valorMenorOuIgualAZero(percentual)) {
 			throw new IllegalArgumentException();

@@ -8,15 +8,15 @@ public class BonusService {
 
 	public BigDecimal calcularBonus(Funcionario funcionario) {
 		
-		// multiplicar o salario por (10%) 10/100 * 1000  
+		BigDecimal valorDeDezPorcentoDoSalario = funcionario.obterValorBaseadoNoPercentualDoSalario(new BigDecimal("0.1"));
 		
-		BigDecimal valor = funcionario.getSalario().multiply(new BigDecimal("0.1"));
+		int compareTo = valorDeDezPorcentoDoSalario.compareTo(new BigDecimal("1000.00"));
 		
-		if (valor.compareTo(new BigDecimal("1000")) > 0) {
-			valor = BigDecimal.ZERO;
+		if (compareTo > 0) {
+			throw new IllegalArgumentException("Não é possível calcular bonus, aonde dez porcento do salário é maior do que 1000.00");
 		}
 		
-		return valor;
+		return valorDeDezPorcentoDoSalario;
 	}
 
 }

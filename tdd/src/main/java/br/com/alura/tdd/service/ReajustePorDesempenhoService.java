@@ -11,7 +11,7 @@ public class ReajustePorDesempenhoService {
 
 		BigDecimal percentual = desempenho.obterPercentualReajuste();
 		
-		BigDecimal reajusteSalarial = funcionario.obterValorPercentualDoSalario(percentual);
+		BigDecimal reajusteSalarial = funcionario.obterValorBaseadoNoPercentualDoSalario(percentual);
 		
 		funcionario.reajustarSalario(reajusteSalarial);
 				
