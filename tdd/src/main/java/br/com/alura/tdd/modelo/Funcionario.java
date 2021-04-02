@@ -33,7 +33,7 @@ public class Funcionario {
 			throw new IllegalArgumentException();
 		}
 
-		this.salario = this.salario.add(reajusteSalarial);
+		this.salario = this.salario.add(reajusteSalarial).setScale(2);
 	}
 
 	public BigDecimal obterValorBaseadoNoPercentualDoSalario(BigDecimal percentual) {
